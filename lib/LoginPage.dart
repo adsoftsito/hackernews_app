@@ -1,16 +1,8 @@
-
-//import 'dart:convert';
-
-//import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-//import 'package:innsalud/main.dart';
-//import 'package:innsalud/main.dart';
 import 'package:provider/provider.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import "MyAppState.dart";
-//import 'LoginResponse.dart';
 
 String loginPostMutation = """
 mutation TokenAuth(\$username : String!,  \$password : String!) {
@@ -40,14 +32,6 @@ mutation CreateUser(\$email : String!,  \$password : String!, \$username : Strin
 }
 """;
 
-/*
-class LoginPage extends StatefulWidget {
-  @override
-  LoginWidget createState() => LoginWidget();
-}
-*/
-
-//class LoginWidget extends State<LoginPage> {
 
 class LoginPage extends StatefulWidget {
   @override
@@ -55,34 +39,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
-  //final _formKey = GlobalKey<FormState>();
-
-//class LoginPage extends StatelessWidget {
-
-//StatefulWidget {
-// StatelessWidget {
-//class _LoginWidgetState extends State<LoginWidget> {
-
-//final String _email = '';
-//final String _password = '';
-
-/*
-Future<QueryResult> _login() async {
-    final mutation = gql(r'''
-      mutation LoginUser($email: String!, $password: String!) {
-        login(email: $email, password: $password) {
-          token
-        }
-      }
-    ''');
-
-    final variables = {'email': _email, 'password': _password};
-
-    return runMutation(mutation, variables);
-  }
-
-*/
 
   TextEditingController userNameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -151,7 +107,7 @@ Future<QueryResult> _login() async {
                   "Ingrese credenciales",
                 ),
                 SizedBox(height: 20),
-TextFormField(
+           TextFormField(
                 keyboardType: TextInputType.text,
                 controller: userNameController,
                 decoration: InputDecoration(
@@ -168,7 +124,7 @@ TextFormField(
                 },
               ),
               SizedBox(height: 10),
-            TextFormField(
+          TextFormField(
                 keyboardType: TextInputType.text,
                 controller: passwordController,
 
@@ -185,7 +141,7 @@ TextFormField(
                   return null;
                 },
               ),
-              Mutation(
+          Mutation(
                 options: MutationOptions(
                   document: gql(loginPostMutation),
                   // ignore: void_checks
@@ -195,28 +151,9 @@ TextFormField(
                   onCompleted: (result) {
                   if (result == null) {
                        print('Completed with errors ');
-                      /*
-                       Alert(context: context, 
-                            type: AlertType.error,
-                            title: "Error ", 
-                            desc:  "Ocurrio un error al intentar hacer login",
-                            buttons: [
-                              DialogButton(
-                                onPressed: () => Navigator.pop(context),
-                                child: Text(
-                                  "Aceptar",
-                                style: TextStyle(color: Colors.white, fontSize: 20),
-                                ),
-                              )]
-                      ).show();
-
-*/
-
-                    }
-                    else {
+                  }
+                  else {
                       print('ok ...');
-
-
                       print(result["tokenAuth"]["token"]);
                       setState(() {
                          appState.username = userNameController.text;
@@ -268,23 +205,12 @@ TextFormField(
                   return ElevatedButton(
                   onPressed: ()  {
 
-                    // Validate returns true if the form is valid, or false otherwise.
                     if (_formKey1.currentState!.validate()) {
-                        // If the form is valid, display a snackbar. In the real world,
-                        // you'd often call a server or save the information in a database.
-
-                                            // ignore: await_only_futures
                         runMutation({ "username": userNameController.text,
                                    "password": passwordController.text
                                   });
 
-                        /*
-                        ScaffoldMessenger.of(context).showSnackBar(
-
-                          const SnackBar(content: Text('Processing Data')),
-
-                          
-                        );*/
+                        
                     }
                   },
                   child: const Text('Login'),
@@ -358,7 +284,7 @@ TextFormField(
                 },
               ),
 
- Mutation(
+              Mutation(
                 options: MutationOptions(
                   document: gql(createPostMutation),
                   // ignore: void_checks

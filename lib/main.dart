@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'LoginPage.dart';
-//import 'LogsPage.dart';
+import 'LogsPage.dart';
 //import "SeguimientoPage.dart";
 //import "RecomendacionesPage.dart";
 //import "PerfilPage.dart";
@@ -85,9 +85,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 break;
 
       case 2:
-        page = LoginPage();
+       // page = LoginPage();
 
-       // page = LogsPage(); 
+        page = LogsPage(); 
                 break;
 
       case 3:
