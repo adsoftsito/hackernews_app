@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'LoginPage.dart';
 import 'LogsPage.dart';
-//import "SeguimientoPage.dart";
+import "SeguimientoPage.dart";
 //import "RecomendacionesPage.dart";
 //import "PerfilPage.dart";
 import "MyAppState.dart";
@@ -79,9 +79,8 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
 
       case 1:
-        page = LoginPage();
-
-       // page =  SeguimientoPage();
+       
+        page =  SeguimientoPage();
                 break;
 
       case 2:
