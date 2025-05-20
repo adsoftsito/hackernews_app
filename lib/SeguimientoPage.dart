@@ -59,7 +59,7 @@ class SeguimientoPage extends StatelessWidget {
                 keyboardType: TextInputType.url,
                 controller: urlController,
                 inputFormatters: [
-                   FilteringTextInputFormatter.allow(RegExp("[a-zA-Z]")), // Allow only digits
+                   FilteringTextInputFormatter.allow(RegExp("[:/.a-zA-Z]")), // Allow only digits
                 ],
                 validator: (value) {
                 if (value!.isEmpty || value.length < 1) {
@@ -161,8 +161,8 @@ class SeguimientoPage extends StatelessWidget {
                  onPressed: ()  {
                    // ignore: await_only_futures
                    runMutation({  
-                                  "url": int.tryParse(urlController.text),
-                                  "description": double.tryParse(descriptionController.text),
+                                  "url": urlController.text,
+                                  "description": descriptionController.text,
                                });
                  },
                  child: const Text('Guardar registro'),
