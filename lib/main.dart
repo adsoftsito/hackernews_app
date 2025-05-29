@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
         },
     );
 
-    // final Link httpLink = authLink.concat(HttpLink('https://adsoftsito-api.onrender.com/graphql/'));
+    //final Link httpLink = authLink.concat(HttpLink('https://hackernews-adsoft.onrender.com/graphql/'));
     final Link httpLink = authLink.concat(HttpLink('http://localhost:8000/graphql/'));
     
     final ValueNotifier<GraphQLClient> client = ValueNotifier<GraphQLClient>(
