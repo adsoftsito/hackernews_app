@@ -11,6 +11,9 @@ query Links {
     id
     url
     description    
+    votes {
+        totalCount
+    }
   }
 }
 """;
@@ -55,13 +58,14 @@ class LogsPage extends StatelessWidget {
                       final id = post['id'];
 
                       final url = post['url'];
-                      final description = post['description'];
-                     
+                      //final description = post['description'];
+                      final totalcount = post['votes']['totalCount'];
+
                       //final user = post["postedBy"]["username"];
                       return BlogRow(
                         id: id,
                         url: url, 
-                        description: description,  
+                        description: totalcount.toString(),  
                        
                       );
                     },

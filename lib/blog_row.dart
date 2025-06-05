@@ -69,7 +69,7 @@ class BlogRow extends StatelessWidget {
                        print('Completed with errors ');
                   }
                   else {
-                      print('ok ...');
+                      print('${id} Votted');
                       print(result);
                       
                      // print(result["tokenAuth"]["token"]);
@@ -126,13 +126,13 @@ class BlogRow extends StatelessWidget {
                   onPressed: ()  {
 
                    // if (_formKey1.currentState!.validate()) {
-                        runMutation({ "linkId": 7,
+                        runMutation({ "linkId": int.parse(id),
                                   });
 
                         
                    // }
                   },
-                  child: const Text('like!'),
+                  child: const Text('like!' ),
                    );
                 }           
             ),
